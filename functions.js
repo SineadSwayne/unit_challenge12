@@ -79,7 +79,7 @@ function getCoCode(phoneNum) {
  * @param {string} inputId  The element id for the text box
  * @param {string} outputId The element id of message div
  */
-function displayCoCode(inputId, outputId) {
+function displayCoCode(inputId, outputId2) {
     var outputText = "";
     var phoneNum = document.getElementById(inputId).value;
     // Now try to get the code
@@ -101,7 +101,14 @@ function displayCoCode(inputId, outputId) {
 function getLineCode(phoneNum) {
     var lineCode;
     try {
-        lineCode = between(phoneNum, "(", ")");
+        CoCode = between(phoneNum, ")", "-");
+        CoCode = CoCode.trim();
+        if (CoCode.length == 3 && Number(CoCode)) {
+            return CoCode;
+        }
+        else {
+            throw new Error("Invalid cocode: " + CoCode);
+        }
     }
     catch (error) {
         console.log(error.message);
