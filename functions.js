@@ -52,8 +52,6 @@ function displayAreaCode(inputId, outputId) {
     }
     document.getElementById(outputId).innerHTML = outputText;
 }
-
-
 /**
  * Returns an co code from a phone number
  * @param   {string} phoneNum The phone number
@@ -63,6 +61,13 @@ function getCoCode(phoneNum) {
     var CoCode;
     try {
         CoCode = between(phoneNum, "(", ")");
+        CoCode = CoCode.trim();
+        if (CoCode.length == 3 && Number(CoCode)) {
+            return CoCode;
+        }
+        else {
+            throw new Error("Invalid cocode: " + CoCode);
+        }
     }
     catch (error) {
         console.log(error.message);
@@ -74,7 +79,7 @@ function getCoCode(phoneNum) {
  * @param {string} inputId  The element id for the text box
  * @param {string} outputId The element id of message div
  */
-function displayCoCode(inputId2, outputId2) {
+function displayCoCode(inputId, outputId) {
     var outputText = "";
     var phoneNum = document.getElementById(inputId).value;
     // Now try to get the code
@@ -88,7 +93,6 @@ function displayCoCode(inputId2, outputId2) {
     }
     document.getElementById(outputId).innerHTML = outputText;
 }
-
 /**
  * Returns an area code from a phone number
  * @param   {string} phoneNum The phone number
@@ -143,11 +147,11 @@ function displayPhone(inputId4, outputId4) {
     var input = document.getElementById(inputId1).value;
     var outputText = "";
     if (validPhone(input) == true) {
-        outputText = "The number " + input + " is a phone number.";
+        outputText = "The number " + input + " is a valid phone number.";
         changeElementClass(outputId, "Valid");
     }
     else {
-        outputText = "The number " + input + " is not a phone number.";
+        outputText = "The number " + input + " is not a vaild phone number.";
         changeElementClass(outputId, "Notvalid");
     }
     document.getElementById(outputId).innerHTML = outputText;
