@@ -27,9 +27,16 @@ function getAreaCode(phoneNum) {
     var areaCode;
     try {
         areaCode = between(phoneNum, "(", ")");
-    }
+        areaCode = areaCode.trim();
+        if (areaCode.length == 3 && Number(areaCode)); {
+            return areaCode;
+        }
+        else {
+            throw new Error("Invalid area code .") + areaCode;
+        }
+    {
     catch (error) {
-        throw new Error("Invalid area code.");
+        throw new Error("Invalid area code .");
     }
     return areaCode;
 }
@@ -42,7 +49,7 @@ function displayAreaCode(inputId, outputId) {
     var outputText = "";
     var phoneNum = document.getElementById(inputId).value;
     // Now try to get the code
-    try {
+   try {
         var areaCode = getAreaCode(phoneNum);
         outputText = "Your area code is " + areaCode;
     }
@@ -52,7 +59,6 @@ function displayAreaCode(inputId, outputId) {
     }
     document.getElementById(outputId).innerHTML = outputText;
 }
-
 
 /**
  * Returns an co code from a phone number
@@ -69,12 +75,13 @@ function getCoCode(phoneNum) {
         return undefined;
     }
 }
+
 /**
  * Displays the area code for an inputted phone number
  * @param {string} inputId  The element id for the text box
  * @param {string} outputId The element id of message div
  */
-function displayCoCode(inputId2, outputId2) {
+function displayCoCode(inputId, outputId) {
     var outputText = "";
     var phoneNum = document.getElementById(inputId).value;
     // Now try to get the code
@@ -104,12 +111,13 @@ function getLineCode(phoneNum) {
         return undefined;
     }
 }
+
 /**
  * Displays the area code for an inputted phone number
  * @param {string} inputId  The element id for the text box
  * @param {string} outputId The element id of message div
  */
-function displayLineCode(inputId3, outputId3) {
+function displayLineCode(inputId, outputId) {
     var outputText = "";
     var phoneNum = document.getElementById(inputId).value;
     // Now try to get the code
@@ -139,7 +147,7 @@ function validPhone(b) {
     }
 }
 
-function displayPhone(inputId4, outputId4) {
+function displayPhone(inputId, outputId) {
     var input = document.getElementById(inputId1).value;
     var outputText = "";
     if (validPhone(input) == true) {
