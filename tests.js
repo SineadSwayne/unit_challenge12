@@ -9,7 +9,7 @@ QUnit.test( "Test the getLineCode", function( assert ) {
         getAreCode("(415) 234-5678");
     }, "Missing '('. An error should have been thrown." );
 
-    assert.throws(Test the CoCodefunction() {
+    assert.throws(Test the CoCodefunction()) {
         getAreCode("(415) 234-5678");
     }, "Missing ')'. An error should have been thrown." );
 });
