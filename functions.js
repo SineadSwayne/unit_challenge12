@@ -28,17 +28,14 @@ function getAreaCode(phoneNum) {
     try {
         areaCode = between(phoneNum, "(", ")");
         areaCode = areaCode.trim();
-        if (areaCode.length == 3 && Number(areaCode)); {
+        if (areaCode.length == 3 && Number(areaCode)) {
             return areaCode;
+        } else {
+            throw new Error("Invalid area code: " + areaCode);
         }
-        else {
-            throw new Error("Invalid area code .") + areaCode;
-        }
-    {
-    catch (error) {
-        throw new Error("Invalid area code .");
+    } catch (error) {
+        throw new Error("Invalid phone number: " + error.message);
     }
-    return areaCode;
 }
 /**
  * Displays the area code for an inputted phone number
@@ -68,7 +65,14 @@ function displayAreaCode(inputId, outputId) {
 function getCoCode(phoneNum) {
     var CoCode;
     try {
-        CoCode = between(phoneNum, "(", ")");
+        CoCode = between(phoneNum, ")", "-");
+        CoCode = CoCode.trim();
+        if (CoCode.length == 3 && Number(CoCode)) {
+            return CoCode;
+        }
+        else {
+            throw new Error("Invalid cocode: " + CoCode);
+        }
     }
     catch (error) {
         console.log(error.message);
@@ -95,7 +99,6 @@ function displayCoCode(inputId, outputId) {
     }
     document.getElementById(outputId).innerHTML = outputText;
 }
-
 /**
  * Returns an area code from a phone number
  * @param   {string} phoneNum The phone number
@@ -151,11 +154,11 @@ function displayPhone(inputId, outputId) {
     var input = document.getElementById(inputId1).value;
     var outputText = "";
     if (validPhone(input) == true) {
-        outputText = "The number " + input + " is a phone number.";
+        outputText = "The number " + input + " is a valid phone number.";
         changeElementClass(outputId, "Valid");
     }
     else {
-        outputText = "The number " + input + " is not a phone number.";
+        outputText = "The number " + input + " is not a vaild phone number.";
         changeElementClass(outputId, "Notvalid");
     }
     document.getElementById(outputId).innerHTML = outputText;
