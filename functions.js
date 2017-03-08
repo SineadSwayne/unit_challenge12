@@ -107,13 +107,13 @@ function displayCoCode(inputId, output1Id) {
 function getLineCode(phoneNum) {
     var lineCode;
     try {
-        CoCode = between(phoneNum, ")", "-");
-        CoCode = CoCode.trim();
-        if (CoCode.length == 3 && Number(CoCode)) {
-            return CoCode;
+        LineCode = between(phoneNum, "-", "");
+        LineCode = LineCode.trim();
+        if (LineCode.length == 4 && Number(LineCode)) {
+            return LineCode;
         }
         else {
-            throw new Error("Invalid cocode: " + CoCode);
+            throw new Error("Invalid line code: " + LineCode);
         }
     }
     catch (error) {
@@ -156,16 +156,14 @@ function validPhone(b) {
     }
 }
 
-function displayPhone(inputId, outputId) {
+function displayPhone(inputId, output3Id) {
     var input = document.getElementById(inputId).value;
     var outputText = "";
     if (validPhone(input) == true) {
         outputText = "The number " + input + " is a valid phone number.";
-        changeElementClass(output3Id, "Valid");
     }
     else {
         outputText = "The number " + input + " is not a vaild phone number.";
-        changeElementClass(output3Id, "Notvalid");
     }
-    document.getElementById(outputId).innerHTML = outputText;
+    document.getElementById(output3Id).innerHTML = outputText;
 }
