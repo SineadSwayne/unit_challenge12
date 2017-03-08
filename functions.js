@@ -107,7 +107,7 @@ function displayCoCode(inputId, output1Id) {
 function getLineCode(phoneNum) {
     var lineCode;
     try {
-        LineCode = between(phoneNum, "-", "");
+        LineCode = between(phoneNum, "-", "    ");
         LineCode = LineCode.trim();
         if (LineCode.length == 4 && Number(LineCode)) {
             return LineCode;
