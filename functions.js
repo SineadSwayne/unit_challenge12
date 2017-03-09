@@ -107,18 +107,16 @@ function displayCoCode(inputId, output1Id) {
 function getLineCode(phoneNum) {
     var lineCode;
     try {
-        LineCode = between(phoneNum, "-", "    ");
-        LineCode = LineCode.trim();
-        if (LineCode.length == 4 && Number(LineCode)) {
-            return LineCode;
+        lineCode = phoneNum.slice (10, 15);
+        if (lineCode.length == 4 && Number(lineCode)) {
+            return lineCode;
         }
         else {
-            throw new Error("Invalid line code: " + LineCode);
+            throw new Error("Invalid line code: " + lineCode);
         }
     }
     catch (error) {
-        console.log(error.message);
-        return undefined;
+        throw new Error("Invalid phone number: " + error.message);
     }
 }
 /**

@@ -1,6 +1,20 @@
+QUnit.test("Test the validPhone.", function (assert) {
+    var num = "(415) 234-5678";
+    var result = validPhone(b);
+    assert.deepEqual(result, "(415) 234-5678", "Valid validPhone test passed.");
+});
+QUnit.test("Errors thrown for validPhone", function (assert) {
+    assert.throws(function () {
+        getAreaCode("415)x44-5555");
+    }, "Missing '('. An error should have been thrown.");
+    assert.throws(function () {
+        getAreaCode("(415 4244-5555");
+    }, "Missing ')'. An error should have been thrown.");
+});
+
 QUnit.test("Test the getAreaCode function.", function (assert) {
     var num = "(415) 234-5678";
-    var result = getAreaCode(num);
+    var result = displayPhone(inputId, output3Id);
     assert.deepEqual(result, "415", "Valid area code test passed.");
 });
 
