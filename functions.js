@@ -157,22 +157,17 @@ function validPhone(b) {
         throw new Error("Invalid phone number: " + error.message);
     }
 }
+
 function displayPhone(inputId, output3Id) {
-    var input = document.getElementById(inputId).value;
+    var phoneNum = document.getElementById(inputId).value;
     var outputText = "";
     try {
         if (validPhone(input) == true) {
         outputText = "The number " + input + " is a valid phone number.";
-    }
-   catch (error) {
-        outputText = "The number " + input + " is not a vaild phone number.";
-    }
-    document.getElementById(output3Id).innerHTML = outputText;
-}
-}
-    catch (error) {
-        console.log(error.message);
+     }
+    } catch (error) {
+       console.log(error.message);
         outputText = error.message;
     }
-    document.getElementById(output2Id).innerHTML = outputText;
+    document.getElementById(outputId).innerHTML = outputText;
 }
