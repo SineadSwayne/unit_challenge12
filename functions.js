@@ -158,16 +158,17 @@ function validPhone(b) {
     }
 }
 
-function displayPhone(inputId, outputId) {
+function displayValidPhone(inputId, outputId) {
+    var outputText = ""
     var phoneNum = document.getElementById(inputId).value;
-    var outputText = "";
-    try {
-        if (validPhone(input) == true) {
-        outputText = "The number " + input + " is a valid phone number.";
-     }
+   try {
+        if (validPhone(phoneNum) == true) {
+        outputText = "Your phone number is valid.";
+        }
     } catch (error) {
-       console.log(error.message);
+        console.log(error.message);
         outputText = error.message;
     }
+
     document.getElementById(outputId).innerHTML = outputText;
 }
