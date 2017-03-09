@@ -140,21 +140,20 @@ function displayLineCode(inputId, output2Id) {
 }
 
 function validPhone(b) {
-    var phonelength = b.length;
-    var ifnumber2 = b.slice(0, 1) + b.slice(1, 2) + b.slice(2, 3) + b.slice(4, 5) + b.slice(5, 6) + b.slice(6, 7) + b.slice(8, 9) + b.slice(9, 10) + b.slice(10, 11) + b.slice(11, 12) + b.slice(12, 13) + b.slice(13, 14) + b.slice(14, 15);
-    var hyphen = b.charAt(9);
-    var parentheses1 = b.charAt(0);
-    var parentheses2 = b.charAt(4);
+
     try {
-        if (phonelength == 14 && ifnumber2 >= 0 && hyphen == "-" && parentheses1 == "(" && parentheses2 == ")") {
-        return true
-    }
-    else {
+    var phonelength = b.length;
+    var ifnumber2 = b.slice(1, 2) + b.slice(2, 3) + b.slice(3, 4) + b.slice(6, 7) + b.slice(7, 8) + b.slice(8, 9) + b.slice(10,11) + b.slice(11, 12) + b.slice(12,13) + b.slice (13,14) + b.slice(14,15);
+    var hyphen = b.charAt(9);
+    var par1 = b.charAt(0);
+    var par2 = b.charAt(4);
+    if (phonelength == 14 && ifnumber2 >= 0 && hyphen == "-" && par1 == "(" && par2 == ")") {
+        return true;
+    } else {
         throw new Error("Invalid phone number: " + b);
     }
-}
- catch (error) {
-        throw new Error("Invalid phone number: " + error.message);
+    } catch (error) {
+        throw new Error("Invalid: " + error.message);
     }
 }
 
