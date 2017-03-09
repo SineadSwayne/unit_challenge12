@@ -158,7 +158,7 @@ function validPhone(b) {
     }
 }
 
-function displayPhone(inputId, output3Id) {
+function displayPhone(inputId, outputId) {
     var phoneNum = document.getElementById(inputId).value;
     var outputText = "";
     try {
