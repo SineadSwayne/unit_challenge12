@@ -142,26 +142,37 @@ function displayLineCode(inputId, output2Id) {
 function validPhone(b) {
     var phonelength = b.length;
     var ifnumber2 = b.slice(0, 1) + b.slice(1, 2) + b.slice(2, 3) + b.slice(4, 5) + b.slice(5, 6) + b.slice(6, 7) + b.slice(8, 9) + b.slice(9, 10) + b.slice(10, 11) + b.slice(11, 12) + b.slice(12, 13) + b.slice(13, 14) + b.slice(14, 15);
-    var hyphen = b.charAt(3);
-    var hyphen = b.charAt(7);
+    var hyphen = b.charAt(9);
     var parentheses1 = b.charAt(0);
     var parentheses2 = b.charAt(4);
-    if (phonelength == 14 && ifnumber2 >= 0 && hyphen == "-" && parentheses1 == "(" && parentheses2 == ")") {
+    try {
+        if (phonelength == 14 && ifnumber2 >= 0 && hyphen == "-" && parentheses1 == "(" && parentheses2 == ")") {
         return true
     }
     else {
-        return false
+        throw new Error("Invalid phone number: " + b);
     }
 }
-
+ catch (error) {
+        throw new Error("Invalid phone number: " + error.message);
+    }
+}
 function displayPhone(inputId, output3Id) {
     var input = document.getElementById(inputId).value;
     var outputText = "";
-    if (validPhone(input) == true) {
+    try {
+        if (validPhone(input) == true) {
         outputText = "The number " + input + " is a valid phone number.";
     }
-    else {
+   catch (error) {
         outputText = "The number " + input + " is not a vaild phone number.";
     }
     document.getElementById(output3Id).innerHTML = outputText;
+}
+}
+    catch (error) {
+        console.log(error.message);
+        outputText = error.message;
+    }
+    document.getElementById(output2Id).innerHTML = outputText;
 }
