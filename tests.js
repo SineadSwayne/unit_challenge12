@@ -3,6 +3,7 @@ QUnit.test("Test the validPhone.", function (assert) {
     var result = validPhone(num);
     assert.deepEqual(result, true, "Valid validPhone test passed.");
 });
+
 QUnit.test("Errors thrown for validPhone", function(assert) {
     assert.throws(function () {
         getAreaCode("415)x44-5555");
@@ -47,6 +48,7 @@ QUnit.test("Test the getCoCode.", function (assert) {
     var result = getCoCode(num);
     assert.deepEqual(result, "234", "Valid co code test passed.");
 });
+
 QUnit.test("Errors thrown for getCoCode", function (assert) {
     assert.throws(function () {
         getAreaCode("415)x44-5555");
