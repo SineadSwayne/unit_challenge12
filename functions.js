@@ -18,7 +18,6 @@ function between(string, start, end) {
     }
     return string.slice(startAt, endAt);
 }
-
 /**
  * Returns whether a phone number is valid or not.
  * @param   {string} b; The original string from the user.
@@ -43,7 +42,6 @@ function validPhone(b) {
         throw new Error(error.message);
     }
 }
-
 /**
  * Displays if the the valid phone from inputted phone number is valid or not
  * @param {string} inputId; The original input.
@@ -63,7 +61,6 @@ function displayValidPhone(inputId, outputId) {
     }
     document.getElementById(outputId).innerHTML = outputText;
 }
-
 /**
  * Returns an area code from a phone number
  * @param   {string} phoneNum The phone number
@@ -88,7 +85,7 @@ function getAreaCode(phoneNum) {
 /**
  * Displays the area code for an inputted phone number
  * @param {string} inputId  The element id for the text box
- * @return {string} outputId The element id of message div
+ * @return {string} outputId; Displays the area code to user
  */
 function displayAreaCode(inputId, outputId) {
     var outputText = "";
@@ -105,7 +102,7 @@ function displayAreaCode(inputId, outputId) {
     document.getElementById(outputId).innerHTML = outputText;
 }
 /**
- * Returns an co code from a phone number
+ * Returns a co code from a phone number
  * @param   {string} phoneNum The phone number
  * @returns {string} The co code
  */
@@ -125,8 +122,11 @@ function getCoCode(phoneNum) {
         throw new Error("Invalid phone number: " + error.message);
     }
 }
-
-
+/**
+ * Displays the co code for an inputted phone number
+ * @param {string} inputId  The element id for the text box
+ * @return {string} output1Id; Displays the co code to user
+ */
 function displayCoCode(inputId, output1Id) {
     var outputText = "";
     var phoneNum = document.getElementById(inputId).value;
@@ -161,7 +161,6 @@ function getLineCode(phoneNum) {
         throw new Error("Invalid phone number: " + error.message);
     }
 }
-
 /**
  * Displays the line code from an inputted phone number
  * @param {string} inputId  The element id for the text box
