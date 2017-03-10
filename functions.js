@@ -19,6 +19,12 @@ function between(string, start, end) {
     return string.slice(startAt, endAt);
 }
 
+/**
+ * Returns whether a phone number is valid or not.
+ * @param   {string} b; The original string from the user.
+ * @returns {string} A signal that will allow the following displayValidPhone to display to the user if the number is valid or not (true).
+ * @throws (Error} If the phone number inputted by user is or is not not valid.
+ */
 function validPhone(b) {
     try {
         var phonelength = b.length;
@@ -38,6 +44,11 @@ function validPhone(b) {
     }
 }
 
+/**
+ * Displays if the the valid phone from inputted phone number is valid or not
+ * @param {string} inputId; The original input.
+ * @returns {string} outputId; Displays valid phone or an error message.
+ */
 function displayValidPhone(inputId, outputId) {
     var outputText = ""
     var phoneNum = document.getElementById(inputId).value;
@@ -77,7 +88,7 @@ function getAreaCode(phoneNum) {
 /**
  * Displays the area code for an inputted phone number
  * @param {string} inputId  The element id for the text box
- * @param {string} outputId The element id of message div
+ * @return {string} outputId The element id of message div
  */
 function displayAreaCode(inputId, outputId) {
     var outputText = "";
@@ -131,9 +142,9 @@ function displayCoCode(inputId, output1Id) {
     document.getElementById(output1Id).innerHTML = outputText;
 }
 /**
- * Returns an area code from a phone number
+ * Returns the line code from a phone number
  * @param   {string} phoneNum The phone number
- * @returns {string} The area code
+ * @returns {string} The line code
  */
 function getLineCode(phoneNum) {
     var lineCode;
@@ -150,10 +161,11 @@ function getLineCode(phoneNum) {
         throw new Error("Invalid phone number: " + error.message);
     }
 }
+
 /**
- * Displays the area code for an inputted phone number
+ * Displays the line code from an inputted phone number
  * @param {string} inputId  The element id for the text box
- * @param {string} outputId The element id of message div
+ * @returns {string} output2Id; Displays the line code to user
  */
 function displayLineCode(inputId, output2Id) {
     var outputText = "";
