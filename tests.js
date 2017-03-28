@@ -6,10 +6,10 @@ QUnit.test("Test the validPhone.", function (assert) {
 
 QUnit.test("Errors thrown for validPhone", function(assert) {
     assert.throws(function () {
-        getAreaCode("415)x44-5555");
+        getvalidPhone("415)x44-5555");
     }, "Missing '('. An error should have been thrown.");
     assert.throws(function () {
-        getAreaCode("(415 4244-5555");
+        getvalidPhone("(415 4244-5555");
     }, "Missing ')'. An error should have been thrown.");
 });
 
@@ -36,10 +36,10 @@ QUnit.test("Test the getLineCode function.", function (assert) {
 
 QUnit.test("Errors thrown for getLineCode", function (assert) {
     assert.throws(function () {
-        getAreaCode("415)444-5b55");
+       getLineCode("415)444-5b55");
     }, "Missing '('. An error should have been thrown.");
     assert.throws(function () {
-        getAreaCode("(415 444-55");
+        getLineCode("(415 444-55");
     }, "Missing ')'. An error should have been thrown.");
 });
 
@@ -51,9 +51,9 @@ QUnit.test("Test the getCoCode.", function (assert) {
 
 QUnit.test("Errors thrown for getCoCode", function (assert) {
     assert.throws(function () {
-        getAreaCode("415)x44-5555");
+        getCoCode("415)x44-5555");
     }, "Missing '('. An error should have been thrown.");
     assert.throws(function () {
-        getAreaCode("(415 4244-5555");
+        getCoCode("(415 4244-5555");
     }, "Missing ')'. An error should have been thrown.");
 });

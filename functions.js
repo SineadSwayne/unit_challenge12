@@ -22,7 +22,7 @@ function between(string, start, end) {
  * Returns whether a phone number is valid or not.
  * @param   {string} b; The original string from the user.
  * @returns {string} A signal that will allow the following displayValidPhone to display to the user if the number is valid or not (true).
- * @throws (Error} If the phone number inputted by user is or is not not valid.
+ * @throws (Error} If the phone number inputted by user is not valid.
  */
 function validPhone(b) {
     try {
@@ -65,6 +65,7 @@ function displayValidPhone(inputId, outputId) {
  * Returns an area code from a phone number
  * @param   {string} phoneNum The phone number
  * @returns {string} The area code
+ * @throws error if the area code is invalid
  */
 function getAreaCode(phoneNum) {
     var areaCode;
@@ -105,6 +106,7 @@ function displayAreaCode(inputId, outputId) {
  * Returns a co code from a phone number
  * @param   {string} phoneNum The phone number
  * @returns {string} The co code
+ * @throws error if it is an invalid CoCode
  */
 function getCoCode(phoneNum) {
     var CoCode;
@@ -145,6 +147,7 @@ function displayCoCode(inputId, output1Id) {
  * Returns the line code from a phone number
  * @param   {string} phoneNum The phone number
  * @returns {string} The line code
+ * @throws error if it is an invalid LineCode
  */
 function getLineCode(phoneNum) {
     var lineCode;
